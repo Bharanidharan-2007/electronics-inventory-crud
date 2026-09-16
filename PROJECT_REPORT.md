@@ -30,9 +30,10 @@ The application uses a separated client-server architecture:
 - **Delete**: Users can delete components, prompted by a confirmation modal to prevent accidental data loss.
 
 ## Challenges & Solutions
-*(Leave this section as a placeholder for me to fill in)*
-- [Placeholder for user]
-- [Placeholder for user]
+- **Windows environment variable syntax**: The default `npm run dev` script used Unix-style syntax (`PORT=5000 python3 backend/app.py`), which failed on Windows with a "'PORT' is not recognized" error. Solved by running the Flask backend in a separate terminal (`python app.py`) without the inline environment variable, while the frontend ran independently via Vite.
+- **Postman base URL mismatch**: The generated Postman collection's `baseUrl` variable was set to `http://localhost:3000` (the frontend's port) instead of `http://localhost:5000` (the actual Flask API port), causing all requests to fail to connect. Fixed by updating the collection's `baseUrl` variable to point to the correct backend port.
+- **File naming after zip download**: Downloading the repository as a zip from GitHub caused configuration files such as `.gitignore` and `.env.example` to lose their leading dot (appearing as `_gitignore` and `_env.example`). Solved by manually renaming these files after extraction, restoring their intended function.
+- **Local folder not linked to the correct Git repository**: The working folder had a leftover Git remote pointing to an unrelated project from a previous session. This was identified by running `git remote -v` before pushing, and corrected by removing the incorrect remote and re-adding the correct repository URL before committing and pushing the final code.
 
 ## Future Enhancements
 - User Authentication (Login/Register) to secure the API.
