@@ -1,0 +1,6 @@
+{
+  "name": "Electronics Inventory",
+  "description": "A full-stack CRUD web application for managing an electronics component inventory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
